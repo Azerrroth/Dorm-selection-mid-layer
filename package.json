@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "name": "dorm-selection-mid-layer",
+  "version": "1.0.0",
+  "description": "Mid layer for dorm selection vue frontend static pages.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azerrroth/Dorm-selection-mid-layer.git"
+  },
+  "author": "Azerrroth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Azerrroth/Dorm-selection-mid-layer/issues"
+  },
+  "homepage": "https://github.com/Azerrroth/Dorm-selection-mid-layer#readme"
+}
