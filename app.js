@@ -4,8 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var router = require('./routes/api')
 
 var app = express();
 
@@ -24,7 +23,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var history = require('connect-history-api-fallback');
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use(history());
+app.use(history({
+  rewrites: [
+    { from: /\/index/, to: '/index.html' },
+    { from: /\/login/, to: '/index.html' },
+    { from: /\/home/, to: '/index.html' },
+    { from: /\/register/, to: '/index.html' },
+  ]
+}));
+
+app.use('/api/*', router)
 
 // TODO: Waiting for finished https://blog.csdn.net/astonishqft/article/details/82762354
 // 
