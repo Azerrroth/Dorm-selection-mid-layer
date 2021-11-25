@@ -23,14 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var history = require('connect-history-api-fallback');
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use(history({
-  rewrites: [
-    { from: /\/index/, to: '/index.html' },
-    { from: /\/login/, to: '/index.html' },
-    { from: /\/home/, to: '/index.html' },
-    { from: /\/register/, to: '/index.html' },
-  ]
-}));
+app.use(history());
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/api/*', router)
 
