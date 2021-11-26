@@ -23,13 +23,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const urls = {
-  userPath: 'http://sincos.vip',
-  dormPath: 'http://sincos.vip',
-  orderPath: 'http://sincos.vip',
-  loginPath: 'http://sincos.vip',
-  registerPath: 'http://sincos.vip',
-  tokenPath: 'http://sincos.vip',
-  testPath: 'http://sincos.vip',
+  userPath: 'localhost:8080',
+  dormPath: 'localhost:8080',
+  orderPath: 'localhost:8080',
+  loginPath: 'localhost:8080',
+  registerPath: 'localhost:8080',
+  tokenPath: 'localhost:8080',
+  testPath: 'localhost:8080',
 }
 
 app.use('/api/v1/user/*', proxy(urls.userPath, { proxyReqPathResolver: (req, res) => { return req.baseUrl } }))
