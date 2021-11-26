@@ -22,14 +22,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+require('dotenv').config()
 const urls = {
-  userPath: 'localhost:8080',
-  dormPath: 'localhost:8080',
-  orderPath: 'localhost:8080',
-  loginPath: 'localhost:8080',
-  registerPath: 'localhost:8080',
-  tokenPath: 'localhost:8080',
-  testPath: 'localhost:8080',
+  userPath: process.env.USER_SERVICE_URL,
+  dormPath: process.env.DORM_SERVICE_URL,
+  orderPath: process.env.ORDER_SERVICE_URL,
+  loginPath: process.env.LOGIN_SERVICE_URL,
+  registerPath: process.env.REGISTER_SERVICE_URL,
+  tokenPath: process.env.TOKEN_SERVICE_URL,
+  testPath: process.env.TEST_SERVICE_URL,
+}
+if (process.env.NODE_ENV !== 'production') {
+  console.log(urls)
 }
 
 app.use('/api/v1/user/*', proxy(urls.userPath, { proxyReqPathResolver: (req, res) => { return req.baseUrl } }))
